@@ -1,0 +1,152 @@
+/* Custom Button Component Styles */
+.custom-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+  box-shadow: 
+    0 4px 15px rgba(30, 144, 255, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.custom-button.primary {
+  background: linear-gradient(135deg, #1e90ff 0%, #0abdc6 100%);
+  color: #ffffff;
+  border: 1px solid rgba(30, 144, 255, 0.3);
+}
+
+.custom-button.secondary {
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(10, 189, 198, 0.1) 100%);
+  color: #1e90ff;
+  border: 1px solid #1e90ff;
+}
+
+/* 3D Effect */
+.custom-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+/* Hover Effects */
+.custom-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 8px 25px rgba(30, 144, 255, 0.4),
+    0 4px 15px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  filter: brightness(1.1);
+}
+
+.custom-button:hover::before {
+  left: 100%;
+}
+
+.custom-button.primary:hover {
+  background: linear-gradient(135deg, #4fa8ff 0%, #2cc7d0 100%);
+}
+
+.custom-button.secondary:hover {
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(10, 189, 198, 0.2) 100%);
+  color: #4fa8ff;
+}
+
+/* Active/Click Effects */
+.custom-button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 
+    0 2px 8px rgba(30, 144, 255, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Icon */
+.button-icon {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.custom-button:hover .button-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Button Text */
+.button-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Glow Effect */
+.custom-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.3s, height 0.3s;
+  pointer-events: none;
+}
+
+.custom-button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Focus States */
+.custom-button:focus {
+  outline: none;
+  box-shadow: 
+    0 4px 15px rgba(30, 144, 255, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 3px rgba(30, 144, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-button {
+    padding: 14px 24px;
+    font-size: 14px;
+    min-width: 160px;
+  }
+  
+  .button-icon {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-button {
+    padding: 12px 20px;
+    font-size: 13px;
+    min-width: 140px;
+    gap: 8px;
+  }
+}
+

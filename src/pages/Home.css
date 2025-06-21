@@ -1,0 +1,200 @@
+/* Home Page Styles */
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Buttons Container */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttons-container.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.action-button {
+  animation: buttonFloat 6s ease-in-out infinite;
+}
+
+.whatsapp-button {
+  animation-delay: 0s;
+}
+
+.portfolio-button {
+  animation-delay: -2s;
+}
+
+.youtube-button {
+  animation-delay: -4s;
+}
+
+@keyframes buttonFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Features Section */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(10, 189, 198, 0.05) 100%);
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(30, 144, 255, 0.4);
+  box-shadow: 
+    0 10px 30px rgba(30, 144, 255, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card:hover::before {
+  left: 100%;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(30, 144, 255, 0.3));
+}
+
+.feature-card h3 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e90ff;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+}
+
+.feature-card p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    gap: 3rem;
+    padding: 1.5rem;
+  }
+  
+  .buttons-container {
+    gap: 1.2rem;
+  }
+  
+  .features-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .buttons-container {
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .features-section {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .feature-card {
+    padding: 1.2rem;
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .feature-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}
+

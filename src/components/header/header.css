@@ -1,0 +1,212 @@
+.header-container {
+  position: relative;
+  text-align: center;
+  padding: 10rem 2rem 4rem;
+  z-index: 10;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo Styles */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px) scale(0.8);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-container.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.company-logo {
+  width: auto;
+  height: 240px;
+  max-width: 360px;
+  filter: drop-shadow(0 0 25px rgba(30, 144, 255, 0.4));
+  transition: all 0.3s ease;
+}
+
+.company-logo:hover {
+  filter: drop-shadow(0 0 30px rgba(30, 144, 255, 0.5));
+  transform: scale(1.05);
+}
+
+/* Title */
+.main-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-title.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title-line {
+  color: #ffffff;
+  text-shadow: 
+    0 0 20px rgba(30, 144, 255, 0.5),
+    0 0 40px rgba(30, 144, 255, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.title-highlight {
+  background: linear-gradient(135deg, #1e90ff 0%, #0abdc6 50%, #1e90ff 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(30, 144, 255, 0.6));
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Subtitle */
+.subtitle {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+.subtitle.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.company-name {
+  color: #1e90ff;
+  font-weight: 600;
+  text-shadow: 0 0 15px rgba(30, 144, 255, 0.4);
+  letter-spacing: 1px;
+}
+
+.company-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Header Decoration */
+.header-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-1 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(30, 144, 255, 0.3) 0%, transparent 70%);
+  top: 20%;
+  left: 10%;
+}
+
+.glow-2 {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(10, 189, 198, 0.25) 0%, transparent 70%);
+  top: 60%;
+  right: 15%;
+  animation-delay: -2s;
+}
+
+.glow-3 {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(30, 144, 255, 0.2) 0%, transparent 70%);
+  bottom: 30%;
+  left: 20%;
+  animation-delay: -4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 6rem 1rem 2rem;
+  }
+
+  .company-logo {
+    height: 220px;
+    max-width: 280px;
+  }
+
+  .main-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .glow-orb {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .company-logo {
+    height: 80px;
+    max-width: 200px;
+  }
+
+  .main-title {
+    gap: 0.3rem;
+  }
+
+  .glow-orb {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
